@@ -26,14 +26,11 @@ The Quill API is organised around REST. Our API has predictable, resource-orient
 
 <aside class="warning">All API requests should be made over HTTPS.</aside>
 
-<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
-</aside>
+<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.</aside>
 
 <aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
-<aside class="notice">
-Questions or comments? Please email: <code>support@quillcontent.com</code>
-</aside>
+<aside class="notice">Questions or comments? Please email: <code>support@quillcontent.com</code></aside>
 
 # Authentication
 
