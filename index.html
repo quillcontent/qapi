@@ -44,15 +44,28 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="introduction">Introduction</h1>
+        <h1 id="quill-platform-api-reference">Quill Platform API Reference</h1>
 
-<p>This document has been produced to document the HTTP API, which allows Quill&rsquo;s Clients to programmatically retrieve content from the Quill Platform.</p>
+<blockquote>
+<h3 id="api-endpoint">API endpoint:</h3>
+
+<p>https://qapi.quill-plaform.com/v1/</p>
+</blockquote>
+
+<p>This is a developer reference for the Quill Platform HTTP API, which allows Quill&rsquo;s Clients to programmatically retrieve content.</p>
 
 <p>The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.</p>
 
 <aside class="notice">
 Questions or comments? Email: <code>support@quillcontent.com</code>
 </aside>
+
+<aside class="warning">All API requests should be made over HTTPS.</aside>
+
+<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
+</aside>
+
+<aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
 <h1 id="authentication">Authentication</h1>
 
@@ -76,23 +89,12 @@ You do not need to provide a password.</p>
 You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </aside>
 
-<aside class="warning">All API requests should be made over HTTPS.</aside>
-
 <aside class="warning">API requests without authentication will fail.</aside>
-
-<h1 id="accessing-endpoints">Accessing Endpoints</h1>
-
-<p>The API is reachable at https://qapi.quill-plaform.com/v1/<RESOURCE></p>
-
-<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
-</aside>
-
-<aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
 <h1 id="resources">Resources</h1>
 
 <h2 id="deliverables">Deliverables</h2>
-<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"x-quill-token: &lt;YOUR API TOKEN&gt;"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s1">'https://qapi.quill-platform.com/v1/deliverables/&lt;ID&gt;'</span>
+<pre class="highlight shell"><code>curl -X GET -H <span class="s2">"x-quill-token: &lt;YOUR API TOKEN&gt;"</span> -H <span class="s2">"Cache-Control: no-cache"</span> <span class="s2">"https://qapi.quill-platform.com/v1/deliverables/&lt;ID&gt;"</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/deliverables/&lt;ID&gt;</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="p">:</span> <span class="s">qapi.quill-platform.com</span>
@@ -104,13 +106,24 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
-  </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"&lt;ID&gt;"</span><span class="p">,</span><span class="w">
-    </span><span class="nt">"attrs"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-      </span><span class="nt">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-11-25T10:25:24.059Z"</span><span class="w">
+    </span><span class="nt">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="nt">"id"</span><span class="p">:</span><span class="w">                   </span><span class="s2">"TASK_6dff19a5-92df-46e7-840c-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+            </span><span class="nt">"fields"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="p">{</span><span class="w">
+                    </span><span class="nt">"id"</span><span class="p">:</span><span class="w">           </span><span class="s2">"FILD_5e1fd080-f3e2-45ec-a914-xxxxxxxxxxxx"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"label"</span><span class="p">:</span><span class="w">        </span><span class="s2">"Product description"</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"value"</span><span class="p">:</span><span class="w">        </span><span class="s2">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel vulputate neque, a sodales libero. Nulla condimentum velit ipsum, eget ullamcorper massa cursus vitae. Ut turpis tortor, condimentum ut mattis in, porttitor vel justo. Sed tincidunt et risus volutpat dignissim. Nulla pretium placerat dui, ut lobortis mauris sollicitudin non. Nam eu enim ac felis sollicitudin commodo. Aenean velit enim, suscipit sed augue eu, varius fermentum urna. Suspendisse potenti."</span><span class="p">,</span><span class="w">
+                    </span><span class="nt">"completed_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01T12:01:00.000Z"</span><span class="w">
+                </span><span class="p">}</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nt">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"items_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="nt">"pages_count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="nt">"meta"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
@@ -134,15 +147,19 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </tr>
 </tbody></table>
 
-<aside class="success">
-200 OK
-</aside>
-
           <h1 id="errors">Errors</h1>
 
-<aside class="notice">Quill uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was missing, an API key was missing/expired, etc.), and codes in the 5xx range indicate an error with Quill&rsquo;s servers (these are rare).</aside>
+<blockquote>
+<h3 id="http-response-codes">HTTP response codes</h3>
 
-<p>The Quill Platform API uses the following error codes:</p>
+<p>Quill uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was missing, an API key was missing/expired, etc.), and codes in the 5xx range indicate an error with Quill&rsquo;s servers (these are rare).</p>
+
+<h3 id="handling-errors">Handling errors</h3>
+
+<p>Our API can raise exceptions for many reasons, such as a invalid auth token charge, invalid parameters, authentication errors, and network unavailability. We recommend writing code that gracefully handles all possible API exception.</p>
+</blockquote>
+
+<h3 id="the-quill-platform-api-uses-the-following-http-response-error-codes">The Quill Platform API uses the following HTTP response error codes:</h3>
 
 <table><thead>
 <tr>
