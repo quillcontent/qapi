@@ -20,11 +20,9 @@ https://qapi.quill-plaform.com/v1/
 
 This is a developer reference for the Quill Platform HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
-The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.
+The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. 
 
-<aside class="notice">
-Questions or comments? Email: <code>support@quillcontent.com</code>
-</aside>
+<aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
 <aside class="warning">All API requests should be made over HTTPS.</aside>
 
@@ -32,6 +30,10 @@ Questions or comments? Email: <code>support@quillcontent.com</code>
 </aside>
 
 <aside class="notice">If you require faster access without rate limit please contact us.</aside>
+
+<aside class="notice">
+Questions or comments? Please email: <code>support@quillcontent.com</code>
+</aside>
 
 # Authentication
 
