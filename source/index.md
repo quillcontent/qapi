@@ -14,9 +14,11 @@ includes:
 search: true
 ---
 
-# Introduction
+# Quill Platform API Reference
+> ### API endpoint: 
+https://qapi.quill-plaform.com/v1/
 
-This document has been produced to document the HTTP API, which allows Quill's Clients to programmatically retrieve content from the Quill Platform.
+This is a developer reference for the Quill Platform HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
 The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.
 
@@ -24,6 +26,12 @@ The Quill API is organised around REST. Our API has predictable, resource-orient
 Questions or comments? Email: <code>support@quillcontent.com</code>
 </aside>
 
+<aside class="warning">All API requests should be made over HTTPS.</aside>
+
+<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
+</aside>
+
+<aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
 # Authentication
 
@@ -51,25 +59,13 @@ Cache-Control: no-cache
 You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </aside>
 
-<aside class="warning">All API requests should be made over HTTPS.</aside>
-
 <aside class="warning">API requests without authentication will fail.</aside>
-
-# Accessing Endpoints
-  
-The API is reachable at https://qapi.quill-plaform.com/v1/<RESOURCE>
-
-<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
-</aside>
-
-<aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
 # Resources
 
 ## Deliverables
-
 ```shell
-curl -X GET -H "x-quill-token: <YOUR API TOKEN>" -H "Cache-Control: no-cache" 'https://qapi.quill-platform.com/v1/deliverables/<ID>'
+curl -X GET -H "x-quill-token: <YOUR API TOKEN>" -H "Cache-Control: no-cache" "https://qapi.quill-platform.com/v1/deliverables/<ID>"
 ```
 
 ```http
@@ -83,13 +79,24 @@ Cache-Control: no-cache
 
 ```json
 {
-  "data": {
-    "id": "<ID>",
-    "attrs": {
-      "created_at": "2015-11-25T10:25:24.059Z"
+    "data": [
+        {
+            "id":                   "TASK_6dff19a5-92df-46e7-840c-xxxxxxxxxxxx",
+            "fields": [
+                {
+                    "id":           "FILD_5e1fd080-f3e2-45ec-a914-xxxxxxxxxxxx",
+                    "label":        "Product description",
+                    "value":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel vulputate neque, a sodales libero. Nulla condimentum velit ipsum, eget ullamcorper massa cursus vitae. Ut turpis tortor, condimentum ut mattis in, porttitor vel justo. Sed tincidunt et risus volutpat dignissim. Nulla pretium placerat dui, ut lobortis mauris sollicitudin non. Nam eu enim ac felis sollicitudin commodo. Aenean velit enim, suscipit sed augue eu, varius fermentum urna. Suspendisse potenti.",
+                    "completed_at": "2015-01-01T12:01:00.000Z"
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "page": 1,
+        "items_count": 1,
+        "pages_count": 1
     }
-  },
-  "meta": {}
 }
 ```
 
@@ -104,9 +111,5 @@ This endpoint retrieves all your content deliverables for the ID you've been pro
 Parameter | Description
 --------- | ------- | -----------
 id | The ID of your group of content deliverables 
-
-<aside class="success">
-200 OK
-</aside>
 
 
