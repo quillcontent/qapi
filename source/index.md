@@ -1,14 +1,12 @@
 ---
-title: API Reference
+title: Quill Platform API Reference
 
 language_tabs:
   - shell
-  - ruby
-  - python
+  - http
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
+  - <a href='http://www.quillcontent.com'>Quill Content</a>
 
 includes:
   - errors
@@ -18,151 +16,97 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+This document has been produced to document the HTTP API, which allows Quill's Clients to programmatically retrieve content from the Quill Platform.
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. JSON is returned by all API responses, including errors.
 
-This example API documentation page was created with [Slate](http://github.com/tripit/slate). Feel free to edit it and use it as a base for your own API's documentation.
+<aside class="notice">
+Questions or comments? Email: <code>support@quillcontent.com</code>
+</aside>
+
 
 # Authentication
 
-> To authorize, use this code:
+In order to properly authenticate with the API you must you send your API key in the header of each request. 
 
-```ruby
-require 'kittn'
+Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas.
+Authentication to the API is performed via custom HTTP header with a key of 
+`x-quill-token:<YOUR API TOKEN>`. 
+You do not need to provide a password.
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+Your API key will be provided by your Quill Account Manager.
 
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl -X GET -H "x-quill-token: <YOUR API TOKEN>" 'https://qapi.quill-platform.com/v1'
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
-
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
-
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
-
-`Authorization: meowmeowmeow`
+```http
+GET /v1 HTTP/1.1
+Host: qapi.quill-platform.com
+x-quill-token: <YOUR API TOKEN>
+Cache-Control: no-cache
+```
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </aside>
 
-# Kittens
+<aside class="warning">All API requests should be made over HTTPS.</aside>
 
-## Get All Kittens
+<aside class="warning">API requests without authentication will fail.</aside>
 
-```ruby
-require 'kittn'
+# Accessing Endpoints
+  
+The API is reachable at https://qapi.quill-plaform.com/v1/<RESOURCE>
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.
 </aside>
 
-## Get a Specific Kitten
+<aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
-```ruby
-require 'kittn'
+# Resources
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
+## Deliverables
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+curl -X GET -H "x-quill-token: <YOUR API TOKEN>" -H "Cache-Control: no-cache" 'https://qapi.quill-platform.com/v1/deliverables/<ID>'
+```
+
+```http
+GET /v1/deliverables/<ID> HTTP/1.1
+Host: qapi.quill-platform.com
+x-quill-token: <YOUR API TOKEN>
+Cache-Control: no-cache
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 {
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
+  "data": {
+    "id": "<ID>",
+    "attrs": {
+      "created_at": "2015-11-25T10:25:24.059Z"
+    }
+  },
+  "meta": {}
 }
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">If you're not using an administrator API key, note that some kittens will return 403 Forbidden if they are hidden for admins only.</aside>
+This endpoint retrieves all your content deliverables for the ID you've been provdied by your Quill Account Manager.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`GET /deliverables/:id`
 
 ### URL Parameters
 
 Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+--------- | ------- | -----------
+id | The ID of your group of content deliverables 
+
+<aside class="success">
+200 OK
+</aside>
+
 
