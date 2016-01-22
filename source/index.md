@@ -116,14 +116,14 @@ This endpoint retrieves all your content deliverables for the ID you've been pro
 
 Parameter | Description
 --------- | ------- | -----------
-ID | The ID of your group of content deliverables.
+ID | The ID of your group of content deliverables
 
 ### Response Properties
 
 Property | Description
 --------- | ------- | -----------
-data | The primary data response from the Quill Platform which is an array data structure. This array contains all your apporved content for the provided ID.
-meta | The meta data reponse from the Quill Platform contains usful supplimental data such as pagination information. 
+data | The primary data response from the Quill Platform which is an array data structure. This array contains all your apporved content for the provided ID
+meta | The meta data reponse from the Quill Platform contains usful supplimental data such as pagination information
 
 # Pagination
 
