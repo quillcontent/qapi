@@ -84,22 +84,22 @@ x-quill-token: <YOUR API TOKEN>
               {
                     "id":           "FILD_6111d080-f3e2-45ec-a914-xxxxxxxxxxxx",
                     "label":        "Product heading",
-                    "value":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                    "completed_at": "2015-01-01T12:01:00.000Z"
+                    "content":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    "completedAt": "2015-01-01T12:01:00.000Z"
                 },
                 {
                     "id":           "FILD_5e1fd080-f3e2-45ec-a914-xxxxxxxxxxxx",
                     "label":        "Product description",
-                    "value":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel vulputate neque, a sodales libero. Nulla condimentum velit ipsum, eget ullamcorper massa cursus vitae. Ut turpis tortor, condimentum ut mattis in, porttitor vel justo. Sed tincidunt et risus volutpat dignissim. Nulla pretium placerat dui, ut lobortis mauris sollicitudin non. Nam eu enim ac felis sollicitudin commodo. Aenean velit enim, suscipit sed augue eu, varius fermentum urna. Suspendisse potenti.",
-                    "completed_at": "2015-01-01T12:01:00.000Z"
+                    "content":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel vulputate neque, a sodales libero. Nulla condimentum velit ipsum, eget ullamcorper massa cursus vitae. Ut turpis tortor, condimentum ut mattis in, porttitor vel justo. Sed tincidunt et risus volutpat dignissim. Nulla pretium placerat dui, ut lobortis mauris sollicitudin non. Nam eu enim ac felis sollicitudin commodo. Aenean velit enim, suscipit sed augue eu, varius fermentum urna. Suspendisse potenti.",
+                    "completedAt": "2015-01-01T12:01:00.000Z"
                 }
             ]
         }
     ],
     "meta": {
         "page": 1,
-        "items_count": 1,
-        "pages_count": 1
+        "itemsCount": 1,
+        "pagesCount": 1
     }
 }
 ```
@@ -146,8 +146,8 @@ Host: qapi.quill-platform.com
   "data":[],
   "meta": {
         "page": 1,
-        "items_count": 1,
-        "pages_count": 1
+        "itemsCount": 1,
+        "pagesCount": 1
     }
 }
 ```
