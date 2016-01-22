@@ -64,17 +64,16 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 
 ## Deliverables
 ```shell
-curl -X GET -H "x-quill-token: <YOUR API TOKEN>" -H "Cache-Control: no-cache" "https://qapi.quill-platform.com/v1/deliverables/<ID>"
+curl -X GET -H "x-quill-token: <YOUR API TOKEN>" -H "https://qapi.quill-platform.com/v1/deliverables/<ID>"
 ```
 
 ```http
 GET /v1/deliverables/<ID> HTTP/1.1
 Host: qapi.quill-platform.com
 x-quill-token: <YOUR API TOKEN>
-Cache-Control: no-cache
 ```
 
-> The above command returns JSON structured like this:
+> The above command returns the following JSON:
 
 ```json
 {
@@ -82,6 +81,12 @@ Cache-Control: no-cache
         {
             "id":                   "TASK_6dff19a5-92df-46e7-840c-xxxxxxxxxxxx",
             "fields": [
+              {
+                    "id":           "FILD_6111d080-f3e2-45ec-a914-xxxxxxxxxxxx",
+                    "label":        "Product heading",
+                    "value":        "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+                    "completed_at": "2015-01-01T12:01:00.000Z"
+                },
                 {
                     "id":           "FILD_5e1fd080-f3e2-45ec-a914-xxxxxxxxxxxx",
                     "label":        "Product description",
@@ -103,12 +108,57 @@ This endpoint retrieves all your content deliverables for the ID you've been pro
 
 ### HTTP Request
 
-`GET /deliverables/:id`
+`GET /deliverables/<ID>`
+
+<aside class="success">A 200 ok response represents a succesful request.</aside>
 
 ### URL Parameters
 
 Parameter | Description
 --------- | ------- | -----------
-id | The ID of your group of content deliverables 
+ID | The ID of your group of content deliverables.
+
+### Response Properties
+
+Property | Description
+--------- | ------- | -----------
+data | The primary data response from the Quill Platform which is an array data structure. This array contains all your apporved content for the provided ID.
+meta | The meta data reponse from the Quill Platform contains usful supplimental data such as pagination information. 
+
+# Pagination
+
+Endpoints that are a list method provide the ability to page through the results. Results are defaulted to 50 per page and the responses contains the paging data within the "meta" data structure.
+
+
+```shell
+curl -X GET -H "x-quill-token: <YOUR API TOKEN>" "https://qapi.quill-platform.com/v1/deliverables/<ID>?page=1"
+```
+
+```http
+GET /v1/deliverables/<ID>?page=1 HTTP/1.1
+Host: qapi.quill-platform.com
+```
+
+> Paging meta data is returned in the following JSON structure:
+
+```json
+{
+  "data":[],
+  "meta": {
+        "page": 1,
+        "items_count": 1,
+        "pages_count": 1
+    }
+}
+```
+
+
+You can request other pages but providing the ```page``` query parameter.
+
+### URL Parameters
+
+Parameter | Description
+--------- | ------- | -----------
+page | The page of results you're looking to access 
 
 
