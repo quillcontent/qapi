@@ -153,7 +153,7 @@ Host: qapi.quill-platform.com
 ```
 
 
-You can request other pages but providing the ```page``` query parameter.
+You can request other pages by providing the ```page``` query parameter.
 
 ### URL Parameters
 
