@@ -41,7 +41,7 @@ Authentication to the API is performed via custom HTTP header with a key of
 `x-quill-token:<YOUR API TOKEN>`. 
 You do not need to provide a password.
 
-Your API key will be provided by your Quill Account Manager.
+Your Quill Account Manager will provide your API key.
 
 ```shell
 curl -X GET -H "x-quill-token: <YOUR API TOKEN>" 'https://qapi.quill-platform.com/v1'
@@ -103,13 +103,13 @@ x-quill-token: <YOUR API TOKEN>
 }
 ```
 
-This endpoint retrieves all your content deliverables for the ID you've been provdied by your Quill Account Manager.
+This endpoint retrieves all your content deliverables for the ID you've been provided by your Quill Account Manager.
 
 ### HTTP Request
 
 `GET /deliverables/<ID>`
 
-<aside class="success">A 200 ok response represents a succesful request.</aside>
+<aside class="success">A 200 ok response represents a successful request.</aside>
 
 ### URL Parameters
 
@@ -121,12 +121,12 @@ ID | The ID of your group of content deliverables
 
 Property | Description
 --------- | ------- | -----------
-data | The primary data response from the Quill Platform which is an array data structure. This array contains all your apporved content for the provided ID
-meta | The meta data reponse from the Quill Platform contains usful supplimental data such as pagination information
+data | The primary data response from the Quill Platform, which is an array data structure. This array contains all your approved content for the provided ID
+meta | The meta data response from the Quill Platform contains useful supplemental data such as pagination information
 
 # Pagination
 
-Endpoints that are a list method provide the ability to page through the results. Results are defaulted to 50 per page and the responses contains the paging data within the "meta" data structure.
+Endpoints that are a list method provide the ability to page through the results. Results are defaulted to 50 per page and the response contains the paging data within the "meta" data structure.
 
 
 ```shell
