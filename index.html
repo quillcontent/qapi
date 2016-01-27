@@ -75,7 +75,7 @@ Authentication to the API is performed via custom HTTP header with a key of
 <code class="prettyprint">x-quill-token:&lt;YOUR API TOKEN&gt;</code>. 
 You do not need to provide a password.</p>
 
-<p>Your API key will be provided by your Quill Account Manager.</p>
+<p>Your Quill Account Manager will provide your API key.</p>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"x-quill-token: &lt;YOUR API TOKEN&gt;"</span> <span class="s1">'https://qapi.quill-platform.com/v1'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -130,13 +130,13 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>This endpoint retrieves all your content deliverables for the ID you&rsquo;ve been provdied by your Quill Account Manager.</p>
+<p>This endpoint retrieves all your content deliverables for the ID you&rsquo;ve been provided by your Quill Account Manager.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET /deliverables/&lt;ID&gt;</code></p>
 
-<aside class="success">A 200 ok response represents a succesful request.</aside>
+<aside class="success">A 200 ok response represents a successful request.</aside>
 
 <h3 id="url-parameters">URL Parameters</h3>
 
@@ -162,17 +162,17 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 </thead><tbody>
 <tr>
 <td>data</td>
-<td>The primary data response from the Quill Platform which is an array data structure. This array contains all your apporved content for the provided ID</td>
+<td>The primary data response from the Quill Platform, which is an array data structure. This array contains all your approved content for the provided ID</td>
 </tr>
 <tr>
 <td>meta</td>
-<td>The meta data reponse from the Quill Platform contains usful supplimental data such as pagination information</td>
+<td>The meta data response from the Quill Platform contains useful supplemental data such as pagination information</td>
 </tr>
 </tbody></table>
 
 <h1 id="pagination">Pagination</h1>
 
-<p>Endpoints that are a list method provide the ability to page through the results. Results are defaulted to 50 per page and the responses contains the paging data within the &ldquo;meta&rdquo; data structure.</p>
+<p>Endpoints that are a list method provide the ability to page through the results. Results are defaulted to 50 per page and the response contains the paging data within the &ldquo;meta&rdquo; data structure.</p>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"x-quill-token: &lt;YOUR API TOKEN&gt;"</span> <span class="s2">"https://qapi.quill-platform.com/v1/deliverables/&lt;ID&gt;?page=1"</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1/deliverables/&lt;ID&gt;?page=1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
