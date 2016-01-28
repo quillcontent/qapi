@@ -16,7 +16,7 @@ search: true
 
 # Quill Platform API Reference
 > ### API endpoint: 
-https://qapi.quill-plaform.com/v1/
+https://qapi.quill-platform.com/v1/
 
 This is a developer reference for the Quill Platform HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
