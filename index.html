@@ -54,28 +54,28 @@
 
 <p>This is a developer reference for the Quill Platform HTTP API, which allows Quill&rsquo;s Clients to programmatically retrieve content.</p>
 
-<p>The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. </p>
+<p>The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. </p>
 
 <aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
 <aside class="warning">All API requests should be made over HTTPS.</aside>
 
-<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.</aside>
+<aside class="warning">We reserve the right to rate-limit any application in the event that fair-use is not being followed.</aside>
 
 <aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
-<aside class="notice">Questions or comments? Please email: <code>support@quillcontent.com</code></aside>
+<aside class="notice">Please email <code>support@quillcontent.com</code>if you have any questions or comments.</aside>
 
 <h1 id="authentication">Authentication</h1>
 
-<p>In order to properly authenticate with the API you must you send your API key in the header of each request. </p>
+<p>In order to properly authenticate with the API your API key must be sent in the header of each request. </p>
 
 <p>Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas.
 Authentication to the API is performed via custom HTTP header with a key of 
 <code class="prettyprint">x-quill-token:&lt;YOUR API TOKEN&gt;</code>. 
 You do not need to provide a password.</p>
 
-<p>Your Quill Account Manager will provide your API key.</p>
+<p>API key will be provided by your.</p>
 <pre class="highlight shell"><code>curl -X GET -H <span class="s2">"x-quill-token: &lt;YOUR API TOKEN&gt;"</span> <span class="s1">'https://qapi.quill-platform.com/v1'</span>
 </code></pre>
 <pre class="highlight http"><code><span class="nf">GET</span> <span class="nn">/v1</span> <span class="k">HTTP</span><span class="o">/</span><span class="m">1.1</span>
@@ -213,11 +213,11 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 <blockquote>
 <h3 id="http-response-codes">HTTP response codes</h3>
 
-<p>Quill uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success, codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was missing, an API key was missing/expired, etc.), and codes in the 5xx range indicate an error with Quill&rsquo;s servers (these are rare).</p>
+<p>Quill uses standard HTTP response codes to indicate the success or failure of an API request. In general, codes in the 2xx range indicate success. Codes in the 4xx range indicate an error that failed given the information provided (e.g., a required parameter was missing, an API key was missing/expired, etc.). Codes in the 5xx range indicate an error with Quill&rsquo;s servers (these are rare).</p>
 
 <h3 id="handling-errors">Handling errors</h3>
 
-<p>Our API can raise exceptions for many reasons, such as a invalid auth token charge, invalid parameters, authentication errors, and network unavailability. We recommend writing code that gracefully handles all possible API exception.</p>
+<p>Our API can raise exceptions for many reasons, such as an invalid auth token charge, invalid parameters, authentication errors, and network unavailability. We recommend writing code that gracefully handles all possible API exceptions.</p>
 </blockquote>
 
 <h3 id="the-quill-platform-api-uses-the-following-http-response-error-codes">The Quill Platform API uses the following HTTP response error codes:</h3>
