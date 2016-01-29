@@ -20,28 +20,28 @@ https://qapi.quill-platform.com/v1/
 
 This is a developer reference for the Quill Platform HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
-The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, like HTTP verbs, which are understood by off-the-shelf HTTP clients. 
+The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. 
 
 <aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
 <aside class="warning">All API requests should be made over HTTPS.</aside>
 
-<aside class="warning">We reserve the right to rate-limit any application if we feel you are not following fair-use.</aside>
+<aside class="warning">We reserve the right to rate-limit any application in the event that fair-use is not being followed.</aside>
 
 <aside class="notice">If you require faster access without rate limit please contact us.</aside>
 
-<aside class="notice">Questions or comments? Please email: <code>support@quillcontent.com</code></aside>
+<aside class="notice">Please email <code>support@quillcontent.com</code>if you have any questions or comments.</aside>
 
 # Authentication
 
-In order to properly authenticate with the API you must you send your API key in the header of each request. 
+In order to properly authenticate with the API your API key must be sent in the header of each request. 
 
 Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas.
 Authentication to the API is performed via custom HTTP header with a key of 
 `x-quill-token:<YOUR API TOKEN>`. 
 You do not need to provide a password.
 
-Your Quill Account Manager will provide your API key.
+API key will be provided by your.
 
 ```shell
 curl -X GET -H "x-quill-token: <YOUR API TOKEN>" 'https://qapi.quill-platform.com/v1'
