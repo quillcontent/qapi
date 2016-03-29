@@ -6,7 +6,7 @@ Quill uses standard HTTP response codes to indicate the success or failure of an
 > ### Handling errors
 Our API can raise exceptions for many reasons, such as an invalid auth token charge, invalid parameters, authentication errors, and network unavailability. We recommend writing code that gracefully handles all possible API exceptions.
 
-### The Quill Platform API uses the following HTTP response error codes:
+### The Quill Cloud API uses the following HTTP response error codes:
 
 
 Error Code | Meaning

@@ -1,5 +1,5 @@
 ---
-title: Quill Platform API Reference
+title: Quill Cloud API Reference
 
 language_tabs:
   - shell
@@ -14,13 +14,13 @@ includes:
 search: true
 ---
 
-# Quill Platform API Reference
+# Quill Cloud API Reference
 > ### API endpoint: 
 https://qapi.quill-platform.com/v1/
 
-This is a developer reference for the Quill Platform HTTP API, which allows Quill's Clients to programmatically retrieve content.
+This is a developer reference for the Quill Cloud HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
-The Quill API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. 
+The Quill Cloud API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. 
 
 <aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
@@ -41,7 +41,7 @@ Authentication to the API is performed via custom HTTP header with a key of
 `x-quill-token:<YOUR API TOKEN>`. 
 You do not need to provide a password.
 
-API key will be provided by your.
+The API key will be provided by your Quill Project Manager.
 
 ```shell
 curl -X GET -H "x-quill-token: <YOUR API TOKEN>" 'https://qapi.quill-platform.com/v1'
@@ -103,7 +103,7 @@ x-quill-token: <YOUR API TOKEN>
 }
 ```
 
-This endpoint retrieves all your content deliverables for the ID you've been provided by your Quill Account Manager.
+This endpoint retrieves all your content deliverables for the ID you've been provided by your Quill Project Manager.
 
 ### HTTP Request
 
@@ -121,8 +121,8 @@ ID | The ID of your group of content deliverables
 
 Property | Description
 --------- | ------- | -----------
-data | The primary data response from the Quill Platform, which is an array data structure. This array contains all your approved content for the provided ID
-meta | The meta data response from the Quill Platform contains useful supplemental data such as pagination information
+data | The primary data response from the Quill Cloud, which is an array data structure. This array contains all your approved content for the provided ID
+meta | The meta data response from the Quill Cloud contains useful supplemental data such as pagination information
 
 # Pagination
 
