@@ -15,12 +15,12 @@ search: true
 ---
 
 # Quill Cloud API Reference
-> ### API endpoint: 
+> ### API endpoint:
 https://qapi.quill-platform.com/v1/
 
 This is a developer reference for the Quill Cloud HTTP API, which allows Quill's Clients to programmatically retrieve content.
 
-The Quill Cloud API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. 
+The Quill Cloud API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients.
 
 <aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
@@ -34,11 +34,11 @@ The Quill Cloud API is organised around REST. Our API has predictable, resource-
 
 # Authentication
 
-In order to properly authenticate with the API your API key must be sent in the header of each request. 
+In order to properly authenticate with the API your API key must be sent in the header of each request.
 
 Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas.
-Authentication to the API is performed via custom HTTP header with a key of 
-`x-quill-token:<YOUR API TOKEN>`. 
+Authentication to the API is performed via custom HTTP header with a key of
+`x-quill-token:<YOUR API TOKEN>`.
 You do not need to provide a password.
 
 The API key will be provided by your Quill Project Manager.
@@ -105,9 +105,15 @@ x-quill-token: <YOUR API TOKEN>
 
 This endpoint retrieves all your content deliverables for the ID you've been provided by your Quill Project Manager.
 
+The result is sorted by completion date in descending order.
+
+You can request the results to be filtered from the completion date by providing the ```dateCompletedFrom``` query parameter.
+
 ### HTTP Request
 
 `GET /deliverables/<ID>`
+
+`GET /deliverables/<ID>?dateCompletedFrom=<DATE>`
 
 <aside class="success">A 200 ok response represents a successful request.</aside>
 
@@ -116,6 +122,7 @@ This endpoint retrieves all your content deliverables for the ID you've been pro
 Parameter | Description
 --------- | ------- | -----------
 ID | The ID of your group of content deliverables
+dateCompletedFrom | The deliverables' completion date. The date format is ISO 8601 ```YYYY-MM-DD``` defining ```YYYY``` as the year (all the digits), ```MM``` the month (01 to 12) and ```DD``` the day (01 to 31)
 
 ### Response Properties
 
@@ -158,6 +165,4 @@ You can request other pages by providing the ```page``` query parameter.
 
 Parameter | Description
 --------- | ------- | -----------
-page | The page of results you're looking to access 
-
-
+page | The page of results you're looking to access
