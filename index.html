@@ -54,7 +54,7 @@
 
 <p>This is a developer reference for the Quill Cloud HTTP API, which allows Quill&rsquo;s Clients to programmatically retrieve content.</p>
 
-<p>The Quill Cloud API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients. </p>
+<p>The Quill Cloud API is organised around REST. Our API has predictable, resource-oriented URLs, and uses HTTP response codes to indicate API errors. We use built-in HTTP features, such as HTTP verbs, which are understood by off-the-shelf HTTP clients.</p>
 
 <aside class="notice">JSON is returned by all API responses, including errors.</aside>
 
@@ -68,11 +68,11 @@
 
 <h1 id="authentication">Authentication</h1>
 
-<p>In order to properly authenticate with the API your API key must be sent in the header of each request. </p>
+<p>In order to properly authenticate with the API your API key must be sent in the header of each request.</p>
 
 <p>Your API keys carry many privileges, so be sure to keep them secret! Do not share your secret API keys in publicly accessible areas.
-Authentication to the API is performed via custom HTTP header with a key of 
-<code class="prettyprint">x-quill-token:&lt;YOUR API TOKEN&gt;</code>. 
+Authentication to the API is performed via custom HTTP header with a key of
+<code class="prettyprint">x-quill-token:&lt;YOUR API TOKEN&gt;</code>.
 You do not need to provide a password.</p>
 
 <p>The API key will be provided by your Quill Project Manager.</p>
@@ -132,9 +132,14 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 
 <p>This endpoint retrieves all your content deliverables for the ID you&rsquo;ve been provided by your Quill Project Manager.</p>
 
+<p>The result is sorted by completion date in descending order.</p>
+
+<p>You can request the results to be filtered from the completion date by providing the <code class="prettyprint">dateCompletionFrom</code> query parameter.</p>
+
 <h3 id="http-request">HTTP Request</h3>
 
-<p><code class="prettyprint">GET /deliverables/&lt;ID&gt;</code></p>
+<p><code class="prettyprint">GET /deliverables/&lt;ID&gt;</code>
+<code class="prettyprint">GET /deliverables/&lt;ID&gt;?dateCompletetionFrom=&lt;DATE_IN_ISO8601&gt;</code></p>
 
 <aside class="success">A 200 ok response represents a successful request.</aside>
 
@@ -149,6 +154,10 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 <tr>
 <td>ID</td>
 <td>The ID of your group of content deliverables</td>
+</tr>
+<tr>
+<td>dateCompletionFrom</td>
+<td>The deliverables&rsquo; completion date. The date format is ISO 8601 <code class="prettyprint">YYYY-MM-DD</code> defining <code class="prettyprint">YYYY</code> as the year (all the digits), <code class="prettyprint">MM</code> the month (01 to 12) and <code class="prettyprint">DD</code> the day (01 to 31)</td>
 </tr>
 </tbody></table>
 
