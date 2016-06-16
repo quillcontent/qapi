@@ -134,13 +134,13 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 
 <p>The result is sorted by completion date in descending order.</p>
 
-<p>You can request the results to be filtered from the completion date by providing the <code class="prettyprint">dateCompletionFrom</code> query parameter.</p>
+<p>You can request the results to be filtered from the completion date by providing the <code class="prettyprint">dateCompletedFrom</code> query parameter.</p>
 
 <h3 id="http-request">HTTP Request</h3>
 
 <p><code class="prettyprint">GET /deliverables/&lt;ID&gt;</code></p>
 
-<p><code class="prettyprint">GET /deliverables/&lt;ID&gt;?dateCompletionFrom=&lt;DATE&gt;</code></p>
+<p><code class="prettyprint">GET /deliverables/&lt;ID&gt;?dateCompletedFrom=&lt;DATE&gt;</code></p>
 
 <aside class="success">A 200 ok response represents a successful request.</aside>
 
@@ -157,7 +157,7 @@ You must replace <code>YOUR API TOKEN</code> with your provided API key.
 <td>The ID of your group of content deliverables</td>
 </tr>
 <tr>
-<td>dateCompletionFrom</td>
+<td>dateCompletedFrom</td>
 <td>The deliverables&rsquo; completion date. The date format is ISO 8601 <code class="prettyprint">YYYY-MM-DD</code> defining <code class="prettyprint">YYYY</code> as the year (all the digits), <code class="prettyprint">MM</code> the month (01 to 12) and <code class="prettyprint">DD</code> the day (01 to 31)</td>
 </tr>
 </tbody></table>
